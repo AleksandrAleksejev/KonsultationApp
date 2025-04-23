@@ -1,0 +1,12 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KonsultationApp.Views.AboutPage"
+             Title="About">
+
+    <VerticalStackLayout Padding="20" Spacing="15" HorizontalOptions="Center" VerticalOptions="Center">
+        <Image Source="dotnet_bot.png" WidthRequest="100" />
+        <Label Text="Notes v1.0" FontSize="24" HorizontalOptions="Center" />
+        <Label Text="This app is written in XAML and C# with .NET MAUI." HorizontalOptions="Center" />
+        <Button Text="Learn more..." BackgroundColor="#6200EE" TextColor="White" />
+    </VerticalStackLayout>
+</ContentPage>

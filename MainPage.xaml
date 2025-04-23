@@ -1,0 +1,21 @@
+﻿<ContentPage
+    x:Class="KonsultationApp.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Заметки">
+
+    <StackLayout Padding="10">
+        <CollectionView x:Name="notesCollection" SelectionMode="Single" SelectionChanged="OnSelectionChanged">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="5">
+                        <Label Text="{Binding Text}" FontAttributes="Bold"/>
+                        <Label Text="{Binding Date}" FontSize="12"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Text="Создать заметку" Clicked="OnAddNoteClicked" Margin="0,10"/>
+    </StackLayout>
+</ContentPage>

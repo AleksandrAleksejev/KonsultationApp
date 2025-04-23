@@ -1,0 +1,25 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KonsultationApp.Views.NotesPage"
+             Title="Заметки">
+
+
+    <VerticalStackLayout Padding="10">
+        <Button Text="Создать заметку"
+                Clicked="OnCreateNoteClicked"
+                BackgroundColor="#6200EE"
+                TextColor="White" />
+
+        <CollectionView x:Name="notesCollectionView"
+                    SelectionMode="Single"
+                    SelectionChanged="OnSelectionChanged">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="5" BorderColor="gray">
+                        <Label Text="{Binding Text}" />
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

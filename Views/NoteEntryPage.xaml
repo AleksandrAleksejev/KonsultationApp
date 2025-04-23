@@ -1,0 +1,16 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KonsultationApp.Views.NoteEntryPage"
+             Title="Новая заметка">
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <Editor x:Name="noteEditor"
+                Placeholder="Введите текст..."
+                AutoSize="TextChanges" />
+
+        <Button Text="Сохранить"
+                Clicked="OnSaveClicked"
+                BackgroundColor="#6200EE"
+                TextColor="White"/>
+    </VerticalStackLayout>
+</ContentPage>
