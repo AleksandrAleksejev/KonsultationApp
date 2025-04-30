@@ -1,8 +1,8 @@
 ﻿
 using SQLite;
-using KonsultationApp.Models;
-using KonsultationApp.Services;
-using SQLite;
+
+
+namespace KonsultationApp;
 
 public class DatabaseService
 {

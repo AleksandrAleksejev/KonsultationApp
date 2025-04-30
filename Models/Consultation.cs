@@ -1,8 +1,6 @@
-﻿using KonsultationApp.Models; 
-using KonsultationApp.Services; 
-using SQLite;
+﻿using SQLite;
 
-
+namespace KonsultationApp;
 public class Consultation
 {
     [PrimaryKey, AutoIncrement]

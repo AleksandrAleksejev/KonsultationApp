@@ -1,31 +1,28 @@
-﻿using KonsultationApp.Models;
-using KonsultationApp.Models;
-using KonsultationApp.Services;
-using SQLite;
-
-namespace KonsultationApp.Views;
+﻿namespace KonsultationApp;
 
 public partial class MainPage : ContentPage
 {
     public MainPage()
     {
-        InitializeComponent();
+        InitializeComponent();  
+        SetupUI();
     }
 
-    private async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    private void SetupUI()
     {
-        var note = (Note)e.CurrentSelection.FirstOrDefault();
-        if (note != null)
+        
+        Content = new VerticalStackLayout
         {
-            await Navigation.PushAsync(new NotesPage());
-
-
-        }
+            Children =
+            {
+                new Label
+                {
+                    Text = "Добро пожаловать в KonsultationApp!",
+                    HorizontalOptions = LayoutOptions.Center,
+                    VerticalOptions = LayoutOptions.Center,
+                    FontSize = 20
+                }
+            }
+        };
     }
-
-    private async void OnAddNoteClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new NotesPage());
-    }
-
 }

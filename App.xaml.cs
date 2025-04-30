@@ -1,7 +1,4 @@
-using KonsultationApp;
-using KonsultationApp.Models;
-using KonsultationApp.Services;
-using SQLite;
+﻿namespace KonsultationApp;
 
 public partial class App : Application
 {
@@ -11,8 +8,5 @@ public partial class App : Application
         MainPage = new AppShell();
     }
 
-    private void InitializeComponent()
-    {
-        throw new NotImplementedException();
-    }
+    
 }

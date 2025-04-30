@@ -1,11 +1,9 @@
-﻿using Microsoft.Extensions.Logging;
-using KonsultationApp.Models;
-using KonsultationApp.Services;
-using SQLite;
+﻿using KonsultationApp.ViewModels;
+using Microsoft.Extensions.Logging;
 
-namespace KonsultationApp
-{
-    public static class MauiProgram
+namespace KonsultationApp;
+
+public static class MauiProgram
     {
 
         public static MauiApp CreateMauiApp()
@@ -23,6 +21,7 @@ namespace KonsultationApp
 #if DEBUG
     		builder.Logging.AddDebug();
             builder.Services.AddSingleton<DatabaseService>();
+            builder.Services.AddSingleton<DatabaseService>();
             builder.Services.AddTransient<LoginViewModel>();
             builder.Services.AddTransient<TeacherViewModel>();
             builder.Services.AddTransient<StudentViewModel>();
@@ -31,4 +30,4 @@ namespace KonsultationApp
             return builder.Build();
         }
     }
-}
+

@@ -1,11 +1,13 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 
+namespace KonsultationApp.ViewModels;
+
 public class StudentViewModel : BaseViewModel
 {
     private readonly DatabaseService _databaseService;
 
-    // Изменили private поле на public свойство
+
     public int CurrentStudentId { get; set; }
 
     public ObservableCollection<Consultation> AvailableConsultations { get; }
@@ -43,7 +45,7 @@ public class StudentViewModel : BaseViewModel
                 AvailableConsultations.Add(consultation);
             }
 
-            // Заменяем _currentStudentId на CurrentStudentId
+
             if (CurrentStudentId > 0)
             {
                 var registrations = await _databaseService.GetStudentRegistrations(CurrentStudentId);
@@ -62,12 +64,12 @@ public class StudentViewModel : BaseViewModel
 
     private async Task RegisterForConsultation(int consultationId)
     {
-        // Заменяем _currentStudentId на CurrentStudentId
+
         if (CurrentStudentId == 0) return;
 
         var registration = new StudentConsultation
         {
-            // Заменяем _currentStudentId на CurrentStudentId
+
             StudentId = CurrentStudentId,
             ConsultationId = consultationId,
             RegistrationDateTime = DateTime.Now

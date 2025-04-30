@@ -1,8 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
-using KonsultationApp.Models;
-using KonsultationApp.Services;
-using SQLite;
+
+namespace KonsultationApp.ViewModels;
 
 public class TeacherViewModel : BaseViewModel
 {

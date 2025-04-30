@@ -1,14 +1,13 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using KonsultationApp.Models;
-using KonsultationApp.Services;
-using SQLite;
+
+namespace KonsultationApp.ViewModels;
 
 public class BaseViewModel : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler PropertyChanged;
 
-    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+    protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
@@ -22,6 +21,7 @@ public class BaseViewModel : INotifyPropertyChanged
         OnPropertyChanged(propertyName);
         return true;
     }
+
 
     private bool _isBusy;
     public bool IsBusy

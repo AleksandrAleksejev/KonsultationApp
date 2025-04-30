@@ -1,0 +1,41 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KonsultationApp.TeacherPage"
+             Title="Страница преподавателя">
+
+    <RefreshView IsRefreshing="{Binding IsBusy}"
+                 Command="{Binding RefreshCommand}">
+        <StackLayout Padding="20" Spacing="15">
+            <Button Text="Создать консультацию" 
+                    Command="{Binding AddConsultationCommand}" 
+                    HorizontalOptions="Center" />
+
+            <Label Text="Мои консультации" 
+                   FontSize="Title" />
+
+            <CollectionView ItemsSource="{Binding Consultations}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="10" Margin="5">
+                            <StackLayout>
+                                <Label Text="{Binding Name}" 
+                                       FontSize="Medium" />
+                                <Label Text="{Binding Date, StringFormat='Дата: {0:d}'}" />
+                                <Label Text="{Binding Time, StringFormat='Время: {0:hh\\:mm}'}" />
+                                <Label Text="{Binding Classroom, StringFormat='Кабинет: {0}'}" />
+
+                                <Button Text="Удалить" 
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type local:TeacherPage}}, Path=BindingContext.DeleteConsultationCommand}"
+                                        CommandParameter="{Binding Id}" />
+
+                                <Button Text="Список записавшихся" 
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type local:TeacherPage}}, Path=BindingContext.ViewRegistrationsCommand}"
+                                        CommandParameter="{Binding Id}" />
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </RefreshView>
+</ContentPage>

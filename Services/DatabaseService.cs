@@ -1,6 +1,4 @@
-﻿using KonsultationApp.Models; 
-using KonsultationApp.Services; 
-using SQLite;
+﻿using SQLite;
 
 namespace KonsultationApp.Services
 {

@@ -1,0 +1,19 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KonsultationApp.LoginPage"
+             Title="Вход в систему">
+
+    <StackLayout Padding="20" Spacing="15">
+        <Entry x:Name="UsernameEntry" 
+               Placeholder="Имя пользователя" />
+        <Entry x:Name="PasswordEntry" 
+               Placeholder="Пароль" 
+               IsPassword="True" />
+
+        <Button Text="Войти" 
+                Command="{Binding LoginCommand}" />
+
+        <Button Text="Регистрация" 
+                Command="{Binding RegisterCommand}" />
+    </StackLayout>
+</ContentPage>
