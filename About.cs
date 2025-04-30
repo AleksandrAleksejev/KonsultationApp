@@ -1,4 +1,7 @@
 namespace KonsultationApp.Models;
+using KonsultationApp.Models;
+using KonsultationApp.Services;
+using SQLite;
 
 internal class About
 {

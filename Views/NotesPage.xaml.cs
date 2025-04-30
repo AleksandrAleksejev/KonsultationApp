@@ -1,4 +1,6 @@
 using KonsultationApp.Models;
+using KonsultationApp.Services;
+using SQLite;
 
 namespace KonsultationApp.Views;
 

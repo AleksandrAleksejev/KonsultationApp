@@ -1,4 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
+using KonsultationApp.Models;
+using KonsultationApp.Services;
+using SQLite;
 
 namespace KonsultationApp
 {
@@ -19,6 +22,10 @@ namespace KonsultationApp
 
 #if DEBUG
     		builder.Logging.AddDebug();
+            builder.Services.AddSingleton<DatabaseService>();
+            builder.Services.AddTransient<LoginViewModel>();
+            builder.Services.AddTransient<TeacherViewModel>();
+            builder.Services.AddTransient<StudentViewModel>();
 #endif
 
             return builder.Build();

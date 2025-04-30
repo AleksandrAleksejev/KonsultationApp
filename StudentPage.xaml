@@ -1,0 +1,45 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KonsultationApp.StudentPage"
+             Title="{Binding Title}">
+
+    <RefreshView IsRefreshing="{Binding IsBusy}"
+                 Command="{Binding RefreshCommand}">
+        <StackLayout Padding="20" Spacing="15">
+
+            <!-- Доступные консультации -->
+            <Label Text="Доступные консультации" FontSize="Title" />
+            <CollectionView ItemsSource="{Binding AvailableConsultations}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Label Text="{Binding Name}" />
+                            <Label Text="{Binding Date, StringFormat='Дата: {0:d}'}" />
+                            <Label Text="{Binding Time, StringFormat='Время: {0:hh\\:mm}'}" />
+                            <Button Text="Зарегистрироваться"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type local:StudentPage}}, Path=BindingContext.RegisterForConsultationCommand}"
+                                    CommandParameter="{Binding Id}" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Мои регистрации -->
+            <Label Text="Мои регистрации" FontSize="Title" />
+            <CollectionView ItemsSource="{Binding MyRegistrations}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Label Text="{Binding ConsultationId, StringFormat='Консультация ID: {0}'}" />
+                            <Label Text="{Binding RegistrationDateTime, StringFormat='Зарегистрирован: {0:g}'}" />
+                            <Button Text="Отменить"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type local:StudentPage}}, Path=BindingContext.CancelRegistrationCommand}"
+                                    CommandParameter="{Binding Id}" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </StackLayout>
+    </RefreshView>
+</ContentPage>
